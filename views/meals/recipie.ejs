@@ -1,0 +1,46 @@
+<%- include('../partials/header') %> 
+<%- include('../partials/navbar') %> 
+
+
+<div class="container" id="meal">
+    <div class="row">
+        <img class="col-md-5" src="<%= meals[0].strMealThumb %>" alt="">
+        <div class="col-md-7">
+            <h1 class="lead display-3"><%= meals[0].strMeal %> </h1>
+            <div>
+                <h6 class="lead display-6">Category: <%= meals[0].strCategory %> , Cuisine: <%= meals[0].strArea %></h6>
+                <% if(meals[0].strTags != null){ %> 
+                    <h6 class="lead display-6 mt-3">Tags: <%= meals[0].strTags %></h6>
+                <% } %> 
+                <br>
+                <a href="<%= meals[0].strYoutube %>" target="_blank">
+                    <button class="btn btn-lg" id="tutorial"><i class="fab fa-youtube"></i> Tutorial</button>
+                </a>
+                <a href="<%= meals[0].strSource %>" target="_blank">
+                    <button class="btn btn-lg btn-light"><i class="fas fa-link"></i> Source</button>
+                </a>
+                <% if(currentUser){ %> 
+                    <form action="/user/<%= currentUser._id %>/favourites/<%= meals[0].idMeal %>" method="post">
+                        <button class="btn btn-lg btn-light">Add To Favourite</button>
+                    </form>
+                    <form action="/user/<%= currentUser._id %>/cart/<%= meals[0].idMeal %>" method="post">
+                        <button class="btn btn-lg btn-primary mt-3">Add To Cart</button>
+                    </form>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="instructions">
+    <div class="row">
+        <h3 class="lead display-2">Instructions <span><i class="fas fa-info-circle"></i></span></h3>
+        <p class="lead"><%= meals[0].strInstructions %> </p>
+    </div>
+</div>
+
+
+
+
+<%- include('../partials/footer') %> 

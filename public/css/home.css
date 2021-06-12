@@ -1,0 +1,18 @@
+
+img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.container .row div h1{
+    font-family: 'Tangerine', serif;
+}
+
+.container .row div h4{
+    font-family: 'Tangerine', serif;
+    font-size: 5rem;
+    /* color: #ffb700; */
+    color: whitesmoke;
+}

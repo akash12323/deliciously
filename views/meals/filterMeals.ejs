@@ -1,0 +1,44 @@
+
+<%- include('../partials/header') %> 
+<%- include('../partials/navbar') %> 
+
+
+
+<div class="container" id="filtermeal" style="margin-top: 3%;">
+    <div class="row">
+        <% for(let ctg of categories){ %> 
+            <% if(ctg.strCategory === category){ %> 
+                <img loading="lazy" class="col-12 col-lg-4 col-md-6 col-sm-12" src="<%= ctg.strCategoryThumb %> " alt="">
+                <div class="col-12 col-lg-8 col-md-6 col-sm-12">
+                    <h3><%= category %> </h3>
+                    <p class="lead"><%= ctg.strCategoryDescription %> </p>
+                </div>
+            <% } %> 
+        <% } %> 
+    </div>
+</div>
+
+
+
+<div class="container" id="categories">
+    <div class="row">
+        <% for(let meal of meals){ %>
+            <div class="col-6 col-lg-3 col-md-4 col-sm-6">
+                <div class="card text-center" style="width: 18rem; margin: 20px auto; ">
+                    <img src="<%= meal.strMealThumb %> " loading="lazy" class="card-img-top" alt="..." >
+                    <div class="card-body">
+                        <h5 class="card-title lead"><%= meal.strMeal %></h5>
+                        <a href="/meals/<%= category %>/<%= meal.idMeal %>" class="btn btn-outline-primary">View Recipie</a>
+                    </div>
+                </div>
+            </div>
+        <% } %> 
+    </div>
+</div>
+
+
+
+
+
+
+<%- include('../partials/footer') %> 

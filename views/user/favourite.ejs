@@ -1,0 +1,44 @@
+
+<%- include('../partials/header') %> 
+<%- include('../partials/navbar') %> 
+
+<div class="container mb-4" style="border: 0;">
+    <%- include('../partials/flash') %> 
+</div>
+
+
+
+<% if(favourites.length == 0){ %> 
+    <div class="container mb-4 mt-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="lead display-5 text-center">No Favorites Yet!!</h1>
+            </div>
+        </div>
+    </div>
+<% } %>
+
+
+
+    <div class="container mb-4" id="categories" >
+        <div class="row">
+            <%for(let fav of favourites){%>
+                <div class="col-6 col-lg-3 col-md-6 col-sm-6">
+                    <div class="card text-center mt-4" style="border: 0px;">
+                        <img src="<%= fav.img %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= fav.name %></h5>
+                            <a href="/user/<%= currentUser._id %>/favourites/<%= fav._id %>" class="btn btn-primary">View Recipie</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+ 
+
+
+
+
+
+<%- include('../partials/footer') %> 

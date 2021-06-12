@@ -1,0 +1,30 @@
+
+<%- include('../partials/header') %> 
+
+<link rel="stylesheet" href="/css/home.css">
+
+
+
+
+<!-- <img src="https://images.unsplash.com/photo-1611249020507-308d3606fa2a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGZvb2QlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt=""> -->
+<img src="https://images.unsplash.com/photo-1615653633551-25dd80d2765a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center" style="margin-top: 15%; margin-left: 20;">
+            <h1 class="display-1">DELICIOUSLY</h1>
+            <h4 class="lead display-3">The Fooder's Hub</h4>
+            <br>
+            <a class="btn btn-lg btn-warning" href="/meals">Explore Now</a>
+            <% if(!currentUser){ %> 
+                <a class="btn btn-lg btn-light" href="/login">Log In</a>
+            <% } %> 
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include('../partials/footer') %> 

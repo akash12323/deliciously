@@ -1,0 +1,28 @@
+<%- include('../partials/header') %> 
+<%- include('../partials/navbar') %> 
+
+
+
+<div class="container">
+    <div class="row">
+        <% if(meals == null){ %> 
+            <div class="col-lg-12 mt-4">
+                <h1 class="lead display-5 text-center">Couldn't find any matching dishes!!</h1>
+            </div>
+        <% }else{ %> 
+            <% for(let meal of meals){ %>
+                <div class="text-center col-6 col-lg-3 col-md-4 col-sm-6 mt-3">
+                    <img src="<%= meal.strMealThumb %> " class="card-img-top" alt="..." >
+                    <div class="card-body">
+                        <h5 class="card-title lead"><%= meal.strMeal %></h5>
+                        <a href="/meals/<%= meal.strCategory %>/<%= meal.idMeal %>" class="btn btn-light">View Recipie</a>
+                    </div>
+                </div>
+            <% } %>
+        <% } %> 
+    </div>
+</div>
+
+
+
+<%- include('../partials/footer') %> 
