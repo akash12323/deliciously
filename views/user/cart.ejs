@@ -59,13 +59,9 @@
 
         <div class="mt-2">
           <p class="fw-bold">Total Amount :  &#8377; <%=totalAmount%></p>
-          <form action="/pay" method="POST">
+          <form action="/user/<%= currentUser._id %>/paymentinfo" method="GET">
             <input class="amount" type="hidden" name="amount" value="<%=totalAmount%>"/>
-            <input class="con" type="hidden" name="phone" value=<%= user.phoneNum %>   />
-            <input type="hidden" name="service_provider" 
-             value="payu_paisa"/>
-            <input type="hidden" class="product" name="email" 
-             value=<%= user.email %> />
+            <input type="hidden" class="product" name="email" value=<%= user.email %> />
              
              <button class="btn btn-success">Proceed To Pay</button>
           </form>

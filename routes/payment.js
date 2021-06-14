@@ -9,11 +9,17 @@ const { v4: uuidv4 } = require("uuid");
 const checksum_lib = require('../payTM/checksum/checksum');
 const config = require("../payTM/checksum/config");
 
-router.post("/pay", isLoggedIn, (req, res) => {
+router.post("/pay", isLoggedIn, async(req, res) => {
   // Route for making payment
   // console.log(req.user);
+
+  const user = req.user;
+  user.address = req.body.address;
+  user.phoneNumber = req.body.phone;
+  await user.save();
+
   var paymentDetails = {
-    amount: req.body.amount,
+    amount: req.body.amount.trim(),
     customerId: uuidv4(),
     customerEmail: req.body.email,
     customerPhone: req.body.phone,

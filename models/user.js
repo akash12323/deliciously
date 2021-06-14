@@ -11,10 +11,11 @@ const userSchema = new mongoose.Schema({
         unique:true,
         required:true
     },
-    phoneNum:{
-        type:Number,
-        unique:true,
-        required:true
+    phoneNumber:{
+        type:String
+    },
+    address:{
+        type:String
     },
     favourites:[{
         type:mongoose.Schema.Types.ObjectId,

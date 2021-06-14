@@ -30,7 +30,7 @@ router.get('/register',(req,res)=>{
 router.post('/register',async(req,res)=>{
     emailCheck(`${req.body.email}`,{timeout:90000})
     .then(async()=>{
-        const user = new User({email:req.body.email, username:req.body.username, phoneNum:req.body.phonenum});
+        const user = new User({email:req.body.email, username:req.body.username});
         await User.register(user,req.body.password);
         req.flash('success','Registered successfully!!!');
 

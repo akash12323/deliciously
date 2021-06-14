@@ -72,6 +72,33 @@ router.delete('/user/:userId/favourites/:id', isLoggedIn ,async(req,res)=>{
 
 
 
+//to view all orders
+router.get('/user/:id/me', isLoggedIn, async(req, res) => {
+    try {
+        const userInfo = await User.findById(req.params.id).populate({ 
+          path: 'orders',
+          populate: {
+            path: 'orderedProducts',
+            model: 'Cart'
+          } 
+        })
+  
+        res.render('user/myorders',{orders:userInfo.orders});
+    }
+    catch (e) {
+          console.log(e.message);
+          req.flash('error', 'Cannot Place the Order at this moment.Please try again later!');
+          res.redirect('/meals');
+    } 
+  })
+
+
+  router.get('/user/:userid/paymentinfo',isLoggedIn, (req, res) => {
+    console.log(req.query.amount);
+    res.render(`payment/payment`,{amount:req.query.amount,email:req.query.email});
+  })
+
+
 
 
 module.exports = router;
