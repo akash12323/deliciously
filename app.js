@@ -67,7 +67,7 @@ app.use(paymentRoutes);
 
 const mongoose = require('mongoose');
 
-mongoose.connect(`${process.env.DB_URL}`, 
+mongoose.connect(`${process.env.DB_URLs}`, 
 {
     useNewUrlParser: true,
     useUnifiedTopology: true,
