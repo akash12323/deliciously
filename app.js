@@ -83,6 +83,6 @@ mongoose.connect(`${process.env.DB_URLs}`,
 
 
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log('Server started on Port 3000');
 })
