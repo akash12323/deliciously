@@ -14,8 +14,8 @@
     </div>
     <div class="row">
         <form action="/meals/search" method="GET">
-            <input type="text" name="mealName" placeholder="Search......" class="col-10 col-lg-8 col-md-7 col-sm-12" value="" style="margin-bottom: 10px;">
-            <button type="submit" class="btn-primary btn-lg col-3 col-lg-2 col-md-3 col-sm-4">Search</button>
+            <input type="text" name="mealName" placeholder="Search......" class="col-12 col-lg-8 col-md-7 col-sm-12" value="" style="margin-bottom: 10px;">
+            <button type="submit" class="btn-primary btn-lg col-6 col-lg-2 col-md-3 col-sm-6">Search</button>
         </form>
     </div>
 </div>
@@ -24,7 +24,7 @@
     <div class="row">
         <% for(let category of categories){ %>
             <div class="col-6 col-lg-3 col-md-4 col-sm-6">
-                <div class="card text-center" style="width: 20rem; margin: 20px auto;">
+                <div class="card text-center" style="max-width: 20rem; margin: 20px auto;">
                     <img src="<%= category.strCategoryThumb %>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><%= category.strCategory %></h5>
